@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de la Pizza - {{ pizza.nombre }}</title>
+</head>
+<body>
+    <h1>Detalle de la Pizza: {{ pizza.nombre }}</h1>
+    <p><strong>Descripción:</strong> {{ pizza.descripcion }}</p>
+    <p><strong>Precio:</strong> ${{ pizza.precio }}</p>
+    <p><strong>Tipo de Masa:</strong> {{ pizza.tipo_masa.nombre }}</p>
+
+    <h2>Ingredientes</h2>
+    <ul>
+        {% for ingrediente in pizza.ingredientes.all %}
+            <li>{{ ingrediente.nombre }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'lista_pizzas' %}">Volver a la lista de pizzas</a>
+</body>
+</html>
