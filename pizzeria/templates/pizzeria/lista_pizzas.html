@@ -1,6 +1,22 @@
-<h1>Lista de Pizzas</h1>
-<ul>
-    {% for pizza in pizzas %}
-        <li><a href="{% url 'detalle_pizza' pizza.id %}">{{ pizza.nombre }}</a> - ${{ pizza.precio }}</li> 
-    {% endfor %}
-</ul>
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de pizzas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Lista de Pizzas</h1>
+    <ul>
+        {% for pizza in pizzas %}
+            <li><a href="{% url 'detalle_pizza' pizza.id %}">{{ pizza.nombre }}</a> - ${{ pizza.precio }}</li> 
+        {% endfor %}
+    </ul>
+    <footer>
+        <p>&copy; 2024 Mamma Mia. Todos los derechos reservados.</p>
+    </footer>
+</body>

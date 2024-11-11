@@ -1,6 +1,22 @@
-<h1>Lista de Tipos de Masa</h1>
-<ul>
-    {% for tipo in tipos_masa %}
-        <li><a href="{% url 'detalle_tipo_masa' tipo.id %}">{{ tipo.nombre }}</a> - {{ tipo.descripcion }}</li> 
-    {% endfor %}
-</ul>
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de pizzas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Lista de Tipos de Masa</h1>
+    <ul>
+        {% for tipo in tipos_masa %}
+            <li><a href="{% url 'detalle_tipo_masa' tipo.id %}">{{ tipo.nombre }}</a> - {{ tipo.descripcion }}</li> 
+        {% endfor %}
+    </ul>
+    <footer>
+        <p>&copy; 2024 Mamma Mia. Todos los derechos reservados.</p>
+    </footer>
+</body>

@@ -1,6 +1,23 @@
-<h1>Lista de Ingredientes</h1>
-<ul>
-    {% for ingrediente in ingredientes %}
-        <li><a href="{% url 'detalle_ingrediente' ingrediente.id %}">{{ ingrediente.nombre }}</a> - {{ ingrediente.descripcion }}</li>
-    {% endfor %}
-</ul>
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de ingredientes</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <h1>Lista de Ingredientes</h1>
+    <ul>
+        {% for ingrediente in ingredientes %}
+            <li><a href="{% url 'detalle_ingrediente' ingrediente.id %}">{{ ingrediente.nombre }}</a> - {{ ingrediente.descripcion }}</li>
+        {% endfor %}
+    </ul>
+    <footer>
+        <p>&copy; 2024 Mamma Mia. Todos los derechos reservados.</p>
+    </footer>
+</body>
