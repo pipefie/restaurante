@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Pizza, TipoMasa, Ingrediente
+from django.shortcuts import render, get_object_or_404 , redirect
+from .models import Pizza, TipoMasa, Ingrediente,Reserva
 
 def portada(request):
     pizzas = Pizza.objects.all()[:3]  # Por ejemplo, las tres primeras
@@ -31,5 +31,30 @@ def detalle_ingrediente(request, ingrediente_id):
     pizzas_asociadas = Pizza.objects.filter(ingredientes=ingrediente)
     return render(request, 'pizzeria/detalle_ingrediente.html', {'ingrediente': ingrediente, 'pizzas_asociadas': pizzas_asociadas})
 
-def formulario (request):
-    return render(request, 'pizzeria/formulario.html', {'formulario':None})
+def formulario(request):
+    if request.method == 'POST':
+        
+        nombre = request.POST.get('nombre')
+        email = request.POST.get('email')
+        primera_vez = request.POST.get('primeravez') == 'si'  
+        numero_comensales = request.POST.get('comensales')
+        fecha = request.POST.get('fecha')
+        hora = request.POST.get('hora')
+        comentarios = request.POST.get('comentarios')
+
+        
+        nueva_reserva = Reserva(
+            nombre=nombre,
+            email=email,
+            primera_vez=primera_vez,
+            numero_comensales=numero_comensales,
+            fecha=fecha,
+            hora=hora,
+            comentarios=comentarios
+        )
+        nueva_reserva.save()  
+       
+        return redirect('portada') 
+
+    
+    return render(request, 'pizzeria/formulario.html')
