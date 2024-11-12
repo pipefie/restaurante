@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reserva restaurante </title>
+        <style>
+
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f5f5f5;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            fieldset{
+                border: 1px solid #ccc;
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            legend{
+                font-weight: bold;
+                color: #333;
+            }
+            label{
+                font-weight: bold;
+                margin-bottom: 10px;
+
+            }
+            textarea{
+                height: 100px;
+            }
+            .link-inicio{
+                margin-top: 20px;
+                text-align: center;
+            }
+            .link-inicio a{
+                color: #333;
+                font-weight: bold;
+            }
+            .link-inicio a:hover{
+                color: #555;
+
+            }
+            header{
+            background-color: #333;
+            color:white;
+            padding: 1em;
+            text-align: center;
+        }
+       
+        #Tabla {
+            width: 100%;
+            margin-top:1em;
+            text-align: center;
+        }
+        #Tabla a{
+            color:#fff;
+            font-weight: bold;
+            background-color: #555;
+        }
+        #Tabla a:hover{
+            background-color: #ff6600;
+        }
+
+        main{
+            padding: 20px;
+            justify-content:center ;
+            align-items: center;
+        }
+        footer{
+            background-color: #333;
+            color:white;
+            font-size: 0.8em; 
+            text-align: center;
+        }
+
+
+
+        </style>
+
+
+
+
+
+    </head>
+    <body>
+        <header>
+            <h1>Formulario Restaurante Los Corchos</h1>
+        </header>
+        <nav>
+            <table id="Tabla">
+                <tr>
+                    <td><a href="index.html">General</a></td>
+                    <td><a href="menu.html">Menú</a></td>
+                    <td><a href="ubicacionmapa.html">Mapa</a></td>
+                    <td><a href="eventoscatering.html">Eventos</a></td>
+                </tr>
+            </table>
+    
+        </nav>
+    
+
+
+        <main>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Datos del cliente</legend>
+    
+                    <label for="nombre">Nombre completo:</label><br>
+                    <input type="text" id="nombre" name="nombre" required><br><br>
+    
+                    <label>Es la primera vez en el restaurante?</label><br>
+                    <input type="radio" id="si" name="primeravez" value="si">
+                    <label for="si" >Si</label>
+                    <input type="radio" id="no" name="primeravez" value="no">
+                    <label for="no">No</label><br><br>
+    
+    
+    
+                    <label for="email">Correo electrónico</label><br>
+                    <input type="email" id="email" name="email" required>
+    
+    
+                </fieldset>
+    
+    
+                <fieldset>
+                    <legend>Datos de la reserva:</legend>
+    
+                    <label for="comensales" >Numero de comensales:</label><br>
+                    <select id="comensales" name="comensales" >
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 personas</option>
+                        <option value="8+">Mas de 8 personas</option>
+                      </select><br><br>
+    
+    
+    
+    
+                      <label for="fecha">Selecciona la fecha de la reserva:</label>
+                      <input type="date" id="fecha" name="fecha" required><br><br>
+    
+                      <label for="hora">Selecciona la hora de la reserva:</label>
+                      <input type="time" id="hora" name="hora" required><br><br>
+    
+                      <label for="comentario">Comentarios:</label>
+                      <textarea id="comentario" name="comentarios" rows="4" cols="50"></textarea><br><br>
+    
+    
+                </fieldset>
+    
+                <input  type="checkbox" id="condiciones" name="condiciones" required>
+                <label for="condiciones">Acepto las condiciones de la reserva</label><br><br>
+    
+    
+                <input type="submit" value="Realizar reserva"><br><br>
+    
+                <div class="link-inicio">
+                    <a href="index.html">Volver al inicio</a>
+    
+                </div>
+    
+    
+            </form>
+            <footer>
+                <p>&copy; 2024 Restaurante Delicioso formulario</p>
+            </footer>
+
+
+
+        </main>
+       
+
+        
+    </body>
