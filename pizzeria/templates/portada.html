@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Portada - Mamma Mia{% endblock%}
+{%block content%}
+<div class="hero">
+    <h2>Bienvenidos a Mamma Mia</h2>
+    <p>Explora nuestras pizzas más deliciosas y frescas.</p>
+    <img src="{% static 'imagenes/portada.jpg' %}" alt="Imagen de restaurante">
+  
+</div>
+
+<main>
+    <section class="pizzas-container">
+        {% for pizza in pizzas %}
+            <div class="pizza-card">
+                <h3>{{ pizza.nombre }}</h3>
+                <p><strong>Precio:</strong> ${{ pizza.precio }}</p>
+                <p>{{ pizza.descripcion }}</p>
+                <a href="{% url 'detalle_pizza' pizza.id %}">Ver detalles</a>
+            </div>
+        {% empty %}
+            <p>No hay pizzas disponibles.</p>
+        {% endfor %}
+    </section>
+</main>
+{%endblock%}

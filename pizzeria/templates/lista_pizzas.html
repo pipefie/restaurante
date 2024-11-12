@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Pizzas - Mamma Mia{% endblock%}
+{%block content%}
+    <h1>Lista de Pizzas</h1>
+    <ul>
+        {% for pizza in pizzas %}
+            <li><a href="{% url 'detalle_pizza' pizza.id %}">{{ pizza.nombre }}</a> - ${{ pizza.precio }}</li> 
+        {% endfor %}
+    </ul>
+{%endblock%}

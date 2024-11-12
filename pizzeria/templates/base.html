@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}Mamma Mia{% endblock%}</title>
+</head>
+<body>
+    <header>
+        <h1>Mamma Mia</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'portada' %}">Inicio</a></li>
+                <li><a href="{% url 'lista_pizzas' %}">Pizzas</a></li>
+                <li><a href="{% url 'lista_tipos_masa' %}">Tipos de Masa</a></li>
+                <li><a href="{% url 'lista_ingredientes' %}">Ingredientes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        {%block content%}
+        {%endblock%}
+    </div>
+    <footer>
+        <p>&copy; 2024 Mamma Mia. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
