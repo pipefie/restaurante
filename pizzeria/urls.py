@@ -9,4 +9,5 @@ urlpatterns = [
     path('tipos_masa/<int:tipo_masa_id>/', views.detalle_tipo_masa, name='detalle_tipo_masa'),
     path('ingredientes/', views.lista_ingredientes, name='lista_ingredientes'),
     path('ingredientes/<int:ingrediente_id>/', views.detalle_ingrediente, name='detalle_ingrediente'),
+    path('formulario/', views.formulario, name='formulario'), 
 ]

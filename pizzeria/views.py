@@ -30,3 +30,6 @@ def detalle_ingrediente(request, ingrediente_id):
     ingrediente = get_object_or_404(Ingrediente, id=ingrediente_id)
     pizzas_asociadas = Pizza.objects.filter(ingredientes=ingrediente)
     return render(request, 'pizzeria/detalle_ingrediente.html', {'ingrediente': ingrediente, 'pizzas_asociadas': pizzas_asociadas})
+
+def formulario (request):
+    return render(request, 'pizzeria/formulario.html', {'formulario':None})
