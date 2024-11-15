@@ -1,15 +1,11 @@
 
+{% extends "base.html" %}
 {% load static %}
+{% block title %}Detalle tipo de masa - {{ pizza.nombre }}{% endblock%}
+{%block content%}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle tipo de masa - {{ pizza.nombre }}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-</head>
-<body>
+
+<main>
     <h1>Detalle del Tipo de Masa: {{ tipo_masa.nombre }}</h1>
     <p>{{ tipo_masa.descripcion }}</p>
     <h2>Pizzas asociadas</h2>
@@ -18,7 +14,5 @@
             <li><a href="{% url 'detalle_pizza' pizza.id %}">{{ pizza.nombre }}</a> - ${{ pizza.precio }}</li>
         {% endfor %}
     </ul>
-    <footer>
-        <p>&copy; 2024 Mamma Mia. Todos los derechos reservados.</p>
-    </footer>
-</body>
+</main>
+{%endblock%}

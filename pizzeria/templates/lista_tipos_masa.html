@@ -2,10 +2,12 @@
 {% load static %}
 {% block title %}Tipos de Masa  - Mamma Mia{% endblock%}
 {%block content%}
+<main>
     <h1>Lista de Tipos de Masa</h1>
     <ul>
         {% for tipo in tipos_masa %}
             <li><a href="{% url 'detalle_tipo_masa' tipo.id %}">{{ tipo.nombre }}</a> - {{ tipo.descripcion }}</li> 
         {% endfor %}
     </ul>
+</main>
 {%endblock%}

@@ -3,7 +3,7 @@
 {% block title %}Formulario - Mamma Mia{% endblock%}
 {%block content%}
 <main>
-    <h2>Formulario de reserva</h2>
+    <h1>Formulario de reserva</h1>
     <form action="{% url 'formulario' %}" method="post">
         {% csrf_token %}
         <fieldset>
