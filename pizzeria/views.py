@@ -32,9 +32,6 @@ def lista_ingredientes(request):
 def detalle_ingrediente(request, ingrediente_id):
     ingrediente = get_object_or_404(Ingrediente, id=ingrediente_id)
     pizzas_asociadas = Pizza.objects.filter(ingredientes=ingrediente)
-<<<<<<< HEAD
-    return render(request, 'detalle_ingrediente.html', {'ingrediente': ingrediente, 'pizzas_asociadas': pizzas_asociadas})
-=======
     return render(request, 'pizzeria/detalle_ingrediente.html', {'ingrediente': ingrediente, 'pizzas_asociadas': pizzas_asociadas})
 
 def formulario(request):
@@ -63,5 +60,4 @@ def formulario(request):
         return redirect('portada') 
 
     
-    return render(request, 'pizzeria/formulario.html')
->>>>>>> 0f5698b9d76f8f76f2fbe15a49ec865bb6bfae67
+    return render(request, 'formulario.html')
