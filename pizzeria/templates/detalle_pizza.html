@@ -1,15 +1,9 @@
 
+{% extends "base.html" %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de la Pizza - {{ pizza.nombre }}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-</head>
-<body>
+{% block title %}{{ pizza.nombre }}{% endblock%}
+{%block content%}
+<main>
     <h1>Detalle de la Pizza: {{ pizza.nombre }}</h1>
     <p><strong>Descripción:</strong> {{ pizza.descripcion }}</p>
     <p><strong>Precio:</strong> ${{ pizza.precio }}</p>
@@ -23,8 +17,5 @@
     </ul>
 
     <a href="{% url 'lista_pizzas' %}">Volver a la lista de pizzas</a>
-    <footer>
-        <p>&copy; 2024 Mamma Mia. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+</main>
+{%endblock%}

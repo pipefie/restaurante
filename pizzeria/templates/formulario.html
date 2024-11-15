@@ -1,158 +1,62 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Reserva Restaurante</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-            justify-content: center;
-            align-items: center;
-        }
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Formulario - Mamma Mia{% endblock%}
+{%block content%}
+<main>
+    <h2>Formulario de reserva</h2>
+    <form action="{% url 'formulario' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Datos del cliente</legend>
+            <label for="nombre">Nombre completo:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br><br>
 
-        fieldset {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
+            <label>¿Es la primera vez en el restaurante?</label><br>
+            <input type="radio" id="si" name="primeravez" value="si">
+            <label for="si">Sí</label>
+            <input type="radio" id="no" name="primeravez" value="no">
+            <label for="no">No</label><br><br>
 
-        legend {
-            font-weight: bold;
-            color: #333;
-        }
+            <label for="email">Correo electrónico:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+        </fieldset>
 
-        label {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+        <fieldset>
+            <legend>Datos de la reserva</legend>
+            <label for="comensales">Número de comensales:</label><br>
+            <select id="comensales" name="comensales">
+                <option value="1">1 persona</option>
+                <option value="2">2 personas</option>
+                <option value="3">3 personas</option>
+                <option value="4">4 personas</option>
+                <option value="5">5 personas</option>
+                <option value="8+">Más de 8 personas</option>
+            </select><br><br>
 
-        textarea {
-            height: 100px;
-        }
+            <label for="fecha">Selecciona la fecha de la reserva:</label><br>
+            <input type="date" id="fecha" name="fecha" required><br><br>
 
-        .link-inicio {
-            margin-top: 20px;
-            text-align: center;
-        }
+            <label for="hora">Selecciona la hora de la reserva:</label><br>
+            <input type="time" id="hora" name="hora" required><br><br>
 
-        .link-inicio a {
-            color: #333;
-            font-weight: bold;
-        }
+            <label for="comentario">Comentarios:</label><br>
+            <textarea id="comentario" name="comentarios" rows="4" cols="50"></textarea><br><br>
+        </fieldset>
 
-        .link-inicio a:hover {
-            color: #555;
-        }
+        <input type="checkbox" id="condiciones" name="condiciones" required>
+        <label for="condiciones">Acepto las condiciones de la reserva</label><br><br>
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1em;
-            text-align: center;
-        }
+        <input type="submit" value="Realizar reserva"><br><br>
 
-        #Tabla {
-            width: 100%;
-            margin-top: 1em;
-            text-align: center;
-        }
+        <div class="link-inicio">
+            <a href="index.html">Volver al inicio</a>
+        </div>
+    </form>
+</main>
 
-        #Tabla a {
-            color: #fff;
-            font-weight: bold;
-            background-color: #555;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        #Tabla a:hover {
-            background-color: #ff6600;
-        }
-
-        main {
-            padding: 20px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            font-size: 0.8em;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Formulario Restaurante Mamma Mia</h1>
-    </header>
-    <nav>
-        <table id="Tabla">
-            <tr>
-                <td><a href="index.html">General</a></td>
-                <td><a href="menu.html">Menú</a></td>
-                <td><a href="ubicacionmapa.html">Mapa</a></td>
-                <td><a href="eventoscatering.html">Eventos</a></td>
-            </tr>
-        </table>
-    </nav>
-    <main>
-        <form action="{% url 'formulario' %}" method="post">
-            {% csrf_token %}
-            <fieldset>
-                <legend>Datos del cliente</legend>
-                <label for="nombre">Nombre completo:</label><br>
-                <input type="text" id="nombre" name="nombre" required><br><br>
-
-                <label>¿Es la primera vez en el restaurante?</label><br>
-                <input type="radio" id="si" name="primeravez" value="si">
-                <label for="si">Sí</label>
-                <input type="radio" id="no" name="primeravez" value="no">
-                <label for="no">No</label><br><br>
-
-                <label for="email">Correo electrónico:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
-            </fieldset>
-
-            <fieldset>
-                <legend>Datos de la reserva</legend>
-                <label for="comensales">Número de comensales:</label><br>
-                <select id="comensales" name="comensales">
-                    <option value="1">1 persona</option>
-                    <option value="2">2 personas</option>
-                    <option value="3">3 personas</option>
-                    <option value="4">4 personas</option>
-                    <option value="5">5 personas</option>
-                    <option value="8+">Más de 8 personas</option>
-                </select><br><br>
-
-                <label for="fecha">Selecciona la fecha de la reserva:</label><br>
-                <input type="date" id="fecha" name="fecha" required><br><br>
-
-                <label for="hora">Selecciona la hora de la reserva:</label><br>
-                <input type="time" id="hora" name="hora" required><br><br>
-
-                <label for="comentario">Comentarios:</label><br>
-                <textarea id="comentario" name="comentarios" rows="4" cols="50"></textarea><br><br>
-            </fieldset>
-
-            <input type="checkbox" id="condiciones" name="condiciones" required>
-            <label for="condiciones">Acepto las condiciones de la reserva</label><br><br>
-
-            <input type="submit" value="Realizar reserva"><br><br>
-
-            <div class="link-inicio">
-                <a href="index.html">Volver al inicio</a>
-            </div>
-        </form>
-    </main>
-    <footer>
-        <p>&copy; 2024 Restaurante Delicioso formulario</p>
-    </footer>
-</body>
-</html>
+<br>
+<br>
+<br>
+<br>
+<br>
+{%endblock%}
