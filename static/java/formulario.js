@@ -28,3 +28,35 @@ document.getElementById("email").addEventListener("input", function () {
 });
 
 
+
+
+
+
+const fechaInput = document.getElementById("fecha");
+const horaInput = document.getElementById("hora");
+
+// cada vez que haya un cambio en esa fecha o hora
+fechaInput.addEventListener("change", verificarDisponibilidad);
+horaInput.addEventListener("change", verificarDisponibilidad);
+
+function verificarDisponibilidad() {
+    const fecha = fechaInput.value;
+    const hora = horaInput.value;
+
+    if (fecha && hora) { // si ambos campos tienen valor
+        fetch(`/verificar-disponibilidad/?fecha=${fecha}&hora=${hora}`) // envia una solicitud http get al servidor , usando esa url
+            .then(response => response.json()) // Convertir la respuesta a json(java) a un objeto , ya que venia entre "" y asi se puede acceder a los datos como un diccionario
+            .then(data => {
+                if (data.disponible) { // la variable que nos pasanes disponible = true o false
+                    alert("¡Hay espacio disponible!");
+                } else {
+                    alert("No hay espacio para esa fecha y hora.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Hubo un error al verificar la disponibilidad.");
+            });
+    }
+}
+

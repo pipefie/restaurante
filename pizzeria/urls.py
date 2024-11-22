@@ -12,4 +12,5 @@ urlpatterns = [
     path('ingredientes/', views.lista_ingredientes, name='lista_ingredientes'),
     path('ingredientes/<int:ingrediente_id>/', views.detalle_ingrediente, name='detalle_ingrediente'),
     path('formulario/', views.formulario, name='formulario'), 
+    path("verificar-disponibilidad/", views.verificar_disponibilidad, name="verificar_disponibilidad"),
 ]

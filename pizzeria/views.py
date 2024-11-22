@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404 , redirect
 from .models import Pizza, TipoMasa, Ingrediente,Reserva
+from django.http import JsonResponse
 
 def test(request):
     return render(request, 'index.html', {})
@@ -61,3 +62,23 @@ def formulario(request):
 
     
     return render(request, 'formulario.html')
+
+
+
+
+# aqui estamos verificando si hay disponibilidad de fecha y hora
+def verificar_disponibilidad(request):
+    fecha = request.GET.get("fecha")
+    hora = request.GET.get("hora")
+
+    if fecha and hora:
+        # Contamos reservas para esa fecha y hora
+        reservas = Reserva.objects.filter(fecha=fecha, hora=hora).count()
+        #máximo 5 reservas por hora)
+        max_reservas = 5
+        disponible = reservas < max_reservas
+
+        return JsonResponse({"disponible": disponible})
+
+    return JsonResponse({"error": "Faltan datos de fecha y hora"}, status=400)
+
