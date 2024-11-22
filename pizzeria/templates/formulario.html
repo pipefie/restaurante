@@ -4,7 +4,7 @@
 {%block content%}
 <main>
     <h1>Formulario de reserva</h1>
-    <form action="{% url 'formulario' %}" method="post">
+    <form action="{% url 'formulario' %}" method="post" id="form">
         {% csrf_token %}
         <fieldset>
             <legend>Datos del cliente</legend>
@@ -19,6 +19,7 @@
 
             <label for="email">Correo electrónico:</label><br>
             <input type="email" id="email" name="email" required><br><br>
+            <span id="mensaje-email"></span><br><br>
         </fieldset>
 
         <fieldset>
@@ -53,7 +54,7 @@
         </div>
     </form>
 </main>
-<script src="formulario.js"></script>
+<script src="{% static 'java/formulario.js' %}"></script>
 
 <br>
 <br>
