@@ -13,4 +13,6 @@ urlpatterns = [
     path('ingredientes/<int:ingrediente_id>/', views.detalle_ingrediente, name='detalle_ingrediente'),
     path('formulario/', views.formulario, name='formulario'), 
     path("verificar-disponibilidad/", views.verificar_disponibilidad, name="verificar_disponibilidad"),
+    path("reservas/", views.lista_reservas, name="lista_reservas"),
+    path("eliminar-reserva/<int:id>/", views.eliminar_reserva, name="eliminar_reserva"),
 ]

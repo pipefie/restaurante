@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Mis Reservas por email{% endblock%}
+{% block content %}
+<h1>Mis Reservas</h1>
+
+{% if reservas %}
+    <div id="reservas">
+        {% for reserva in reservas %}
+        <div class="reserva" id="reserva-{{ reserva.id }}">
+            <p><strong>Nombre:</strong> {{ reserva.nombre }}</p>
+            <p><strong>Fecha:</strong> {{ reserva.fecha }}</p>
+            <p><strong>Hora:</strong> {{ reserva.hora }}</p>
+            <button onclick="eliminarReserva('{{ reserva.id }}')">Cancelar</button>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No tienes reservas registradas con el correo <strong>{{ email }}</strong>.</p>
+{% endif %}
+
+<script>
+    function eliminarReserva(id) {
+        if (confirm("¿Estás seguro de que deseas cancelar esta reserva?")) {
+            const csrfToken = getCSRFToken();
+            fetch(`/eliminar-reserva/${id}/`, {
+                method: "DELETE",
+                headers: {
+                    "X-CSRFToken": csrfToken, // Incluir el token CSRF para que django me deje eliminar 
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.mensaje) {
+                        alert(data.mensaje);
+                        document.getElementById(`reserva-${id}`).remove(); // Eliminar del DOM
+                    } else {
+                        alert(data.error || "Hubo un error.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Hubo un error al cancelar la reserva.");
+                });
+        }
+    }
+</script>
+{% endblock %}

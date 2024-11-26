@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404 , redirect
 from .models import Pizza, TipoMasa, Ingrediente,Reserva
 from django.http import JsonResponse
 
+
+
 def test(request):
     return render(request, 'index.html', {})
 
@@ -82,3 +84,17 @@ def verificar_disponibilidad(request):
 
     return JsonResponse({"error": "Faltan datos de fecha y hora"}, status=400)
 
+def lista_reservas(request):
+    email_usuario = request.GET.get("email") # aqui ya tengo el correo del usuario
+    reservas = Reserva.objects.filter(email=email_usuario)  # Ffiltramos las reservas por el correo
+    return render(request, "lista_reservas.html", {"reservas": reservas, "email": email_usuario})
+
+
+
+def eliminar_reserva(request, id):
+    try:
+        reserva = Reserva.objects.get(id=id)
+        reserva.delete()  #aqui esta eliminando al reserva de la bd
+        return JsonResponse({"mensaje": "Reserva cancelada con éxito."})
+    except Reserva.DoesNotExist:
+        return JsonResponse({"error": "Reserva no encontrada."}, status=404)
