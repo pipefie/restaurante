@@ -57,6 +57,9 @@ nav ul li a {
     text-align: center;
 }
 
+.imagen{
+    text-align: center;
+}
 
 
 footer {
@@ -72,8 +75,7 @@ footer {
 
 main{
     width: 98%;
-    margin: 0 auto;
-    
+    margin: 0 auto;    
 }
 
 main h1{
@@ -81,4 +83,39 @@ main h1{
 }
 main h2{
     text-align: left;
+}
+
+
+/*DETALLE PIZZA*/
+
+
+.det_pizza{
+    display: flex;
+}
+.texto_pizza {
+    flex: 1; /* El texto ocupa el espacio disponible */
+}
+
+.imagen_detPizza{
+    flex: 0 0 300px; /* La imagen ocupa un espacio fijo de 300px */
+    text-align: right; /* Centra la imagen en su contenedor */
+}
+
+
+/*TABLA DE PIZZAS*/
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th{
+    background-color: #1f4723;
+    border: 1px solid #1f4723; 
+    color: white;
+}
+table td{
+    border: 1px solid #1f4723;
+}
+table td.precio{
+    text-align: center;
 }
