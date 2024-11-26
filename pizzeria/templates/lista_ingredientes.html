@@ -6,7 +6,7 @@
     <h1>Lista de Ingredientes</h1>
     <ul>
         {% for ingrediente in ingredientes %}
-            <li><a href="{% url 'detalle_ingrediente' ingrediente.id %}">{{ ingrediente.nombre }}</a> - {{ ingrediente.descripcion }}</li>
+            <li>{{ ingrediente.nombre }}</a> - {{ ingrediente.descripcion }}</li>
         {% endfor %}
     </ul>
 </main>

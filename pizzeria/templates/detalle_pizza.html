@@ -5,18 +5,60 @@
 {%block content%}
 <main>
     <h1>Detalle de la Pizza: {{ pizza.nombre }}</h1>
-    <p><strong>Descripción:</strong> {{ pizza.descripcion }}</p>
-    <p><strong>Precio:</strong> ${{ pizza.precio }}</p>
-    <p><strong>Tipo de Masa:</strong> {{ pizza.tipo_masa.nombre }}</p>
-
-    <h2>Ingredientes</h2>
-    <ul>
-        {% for ingrediente in pizza.ingredientes.all %}
-            <li>{{ ingrediente.nombre }}</li>
-        {% endfor %}
+    <div class="det_pizza">
+        <div class="texto_pizza">
+            <p><strong>Descripción:</strong> {{ pizza.descripcion }}</p>
+            <p><strong>Precio:</strong> ${{ pizza.precio }}</p>
+            <p><strong>Tipo de Masa:</strong> {{ pizza.tipo_masa.nombre }}</p>
+    
+            <h2>Ingredientes</h2>
+            <ul>
+                {% for ingrediente in pizza.ingredientes.all %}
+                    <li>{{ ingrediente.nombre }}</li>
+                {% endfor %}
+            </ul>
+        </div>
         
-    </ul>
+    
+        <div class="imagen_detPizza">
+            <img id="pizzaImage" src="" alt="Imagen de la pizza" height="275">
+            <br>
+            <br>
+        </div>
+    </div>
+    
+    
 
     <a href="{% url 'lista_pizzas' %}">Volver a la lista de pizzas</a>
+    
 </main>
+<br>
+<br>
+<br>
+<br>
+
+<script>
+    // Obtén el nombre de la pizza desde una variable pasada al template
+    const pizzaNombre = "{{ pizza.nombre }}";
+    const pizzaImage = document.getElementById("pizzaImage");
+
+    // Asocia una imagen basada en el nombre de la pizza
+    if (pizzaNombre === "Margarita") {
+        pizzaImage.src = "{% static 'imagenes/margarita.jpg' %}";
+    } else if (pizzaNombre === "Pepperoni") {
+        pizzaImage.src = "{% static 'imagenes/pepperoni.png' %}";
+    } else if (pizzaNombre === "Pizza Saludable") {
+        pizzaImage.src = "{% static 'imagenes/saludable.jpg' %}";
+    } else if (pizzaNombre === "Pizza Rústica") {
+        pizzaImage.src = "{% static 'imagenes/rustica.webp' %}";
+    } else if (pizzaNombre === "Pizza Pollo Crujiente") {
+        pizzaImage.src = "{% static 'imagenes/polloCrujiente.jpg' %}";
+    } else if (pizzaNombre === "Pizza Vegetal Crujiente	") {
+        pizzaImage.src = "{% static 'imagenes/vegetal.webp' %}";
+    } else {
+        pizzaImage.src = "{% static 'imagenes/tocino.jpg' %}";
+    }
+</script>
+
+
 {%endblock%}

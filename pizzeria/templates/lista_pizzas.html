@@ -23,11 +23,12 @@
             {% for pizza in pizzas %}
             <tr>
                 <td><a href="{% url 'detalle_pizza' pizza.id %}">{{ pizza.nombre }}</a></td>
-                <td>${{ pizza.precio }}</td>
+                <td class="precio">${{ pizza.precio }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <br>
     
     <div class="imagen">
         <img src="{% static 'imagenes/margarita.jpg' %}" alt="Imagen de pizza margarita" height="175">
@@ -36,4 +37,8 @@
 
     </div>  
 </main>
+<br>
+<br>
+<br>
+<br>
 {%endblock%}
