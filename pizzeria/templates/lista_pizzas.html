@@ -4,38 +4,34 @@
 {%block content%}
 <main>
     <h1>Lista de Pizzas</h1>
-<!--
-    <ul>
-        {% for pizza in pizzas %}
-            <li><a href="{% url 'detalle_pizza' pizza.id %}">{{ pizza.nombre }}</a> - ${{ pizza.precio }}</li>
-        {% endfor %}
-    </ul>
--->
-
-    <table class="tabla-pizzas">
-        <thead>
-            <tr>
-                <th>PIZZAS</th>
-                <th>PRECIOS</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for pizza in pizzas %}
-            <tr>
-                <td><a href="{% url 'detalle_pizza' pizza.id %}">{{ pizza.nombre }}</a></td>
-                <td class="precio">${{ pizza.precio }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <br>
+    <div class="contenedor">
+        <div class="cont_tab">
+            <table class="tabla-pizzas">
+                <thead>
+                    <tr>
+                        <th>PIZZAS</th>
+                        <th>PRECIOS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pizza in pizzas %}
+                    <tr>
+                        <td><a href="{% url 'detalle_pizza' pizza.id %}">{{ pizza.nombre }}</a></td>
+                        <td class="precio">${{ pizza.precio }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p class="pequeno">Para más información seleccione la pizza que desea</p>
+            <a href="{% url 'portada' %}">Volver al inicio</a> 
+        </div>
+        
+        
+        <div class="imagen">
+            <img src="{% static 'imagenes/pizzas.jpg' %}" alt="Imagen de pizzas" height="310">    
+        </div>
+    </div> 
     
-    <div class="imagen">
-        <img src="{% static 'imagenes/margarita.jpg' %}" alt="Imagen de pizza margarita" height="175">
-        <img src="{% static 'imagenes/pepperoni.png' %}" alt="Imagen de pizza pepperoni" height="175">
-        <img src="{% static 'imagenes/polloCrujiente.jpg' %}" alt="Imagen de pizza pollo crujiente" height="175">
-
-    </div>  
 </main>
 <br>
 <br>

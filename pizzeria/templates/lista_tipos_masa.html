@@ -9,5 +9,8 @@
             <li><a href="{% url 'detalle_tipo_masa' tipo.id %}">{{ tipo.nombre }}</a> - {{ tipo.descripcion }}</li> 
         {% endfor %}
     </ul>
+
+    <p class="pequeno">Para ver las pizzas disponibles con cada pizza, seleccione la masa deseada</p>
+    <a href="{% url 'portada' %}">Volver al inicio</a> 
 </main>
 {%endblock%}

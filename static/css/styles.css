@@ -87,18 +87,16 @@ main h2{
 
 
 /*DETALLE PIZZA*/
-
-
 .det_pizza{
     display: flex;
 }
 .texto_pizza {
-    flex: 1; /* El texto ocupa el espacio disponible */
+    flex: 1;
 }
 
 .imagen_detPizza{
-    flex: 0 0 300px; /* La imagen ocupa un espacio fijo de 300px */
-    text-align: right; /* Centra la imagen en su contenedor */
+    flex: 0 0 300px;
+    text-align: right;
 }
 
 
@@ -118,4 +116,79 @@ table td{
 }
 table td.precio{
     text-align: center;
+}
+
+/*Contenedores lista pizzas*/
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.cont_tab {
+    flex: 1; /* La tabla ocupará el espacio restante */
+}
+
+/*FORMULARIO*/
+main.formulario{
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 21px 25px #1f4723;
+}
+
+fieldset {
+    border: 1px solid #c3c2c2;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #1f4723;
+    padding: 0 5px;
+}
+
+h1.formulario {
+    color: #1f4723;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"], input[type="date"], input[type="time"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #1f4723;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+/*LINKS*/
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.pequeno{
+    font-size: 12px;
 }

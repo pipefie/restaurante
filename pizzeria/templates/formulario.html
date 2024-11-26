@@ -2,8 +2,8 @@
 {% load static %}
 {% block title %}Formulario - Mamma Mia{% endblock%}
 {%block content%}
-<main>
-    <h1>Formulario de reserva</h1>
+<main class="formulario">
+    <h1 class="formulario">Formulario de reserva</h1>
     <form action="{% url 'formulario' %}" method="post" id="form">
         {% csrf_token %}
         <fieldset>
@@ -19,7 +19,7 @@
 
             <label for="email">Correo electrónico:</label><br>
             <input type="email" id="email" name="email" required><br><br>
-            <span id="mensaje-email"></span><br><br>
+            <span id="mensaje-email"></span>
         </fieldset>
 
         <fieldset>
@@ -41,7 +41,7 @@
             <input type="time" id="hora" name="hora" required><br><br>
 
             <label for="comentario">Comentarios:</label><br>
-            <textarea id="comentario" name="comentarios" rows="4" cols="50"></textarea><br><br>
+            <textarea id="comentario" name="comentarios" rows="4" cols="1"></textarea><br>
         </fieldset>
 
         <input type="checkbox" id="condiciones" name="condiciones" required>
@@ -49,9 +49,9 @@
 
         <input type="submit" value="Realizar reserva"><br><br>
 
-        <div class="link-inicio">
-            <a href="index.html">Volver al inicio</a>
-        </div>
+        
+        <a href="{% url 'portada' %}">Volver al inicio</a>
+        
     </form>
 </main>
 <script src="{% static 'java/formulario.js' %}"></script>
@@ -61,4 +61,5 @@
 <br>
 <br>
 <br>
+
 {%endblock%}
