@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404 , redirect
 from .models import Pizza, TipoMasa, Ingrediente,Reserva
 from django.http import JsonResponse
-
+from django.views.decorators.csrf import csrf_exempt
 
 
 def test(request):
@@ -91,10 +91,14 @@ def lista_reservas(request):
 
 
 
+@csrf_exempt
 def eliminar_reserva(request, id):
-    try:
-        reserva = Reserva.objects.get(id=id)
-        reserva.delete()  #aqui esta eliminando al reserva de la bd
-        return JsonResponse({"mensaje": "Reserva cancelada con éxito."})
-    except Reserva.DoesNotExist:
-        return JsonResponse({"error": "Reserva no encontrada."}, status=404)
+    if request.method == "DELETE":
+        try:
+            reserva = Reserva.objects.get(id=id)
+            reserva.delete()
+            return JsonResponse({"mensaje": "Reserva eliminada con éxito."})
+        except Reserva.DoesNotExist:
+            return JsonResponse({"error": "La reserva no existe."}, status=404)
+    else:
+        return JsonResponse({"error": "Método no permitido."}, status=405)
