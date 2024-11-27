@@ -4,13 +4,46 @@
 {%block content%}
 <main>
     <h1>Lista de Tipos de Masa</h1>
-    <ul>
-        {% for tipo in tipos_masa %}
-            <li><a href="{% url 'detalle_tipo_masa' tipo.id %}">{{ tipo.nombre }}</a> - {{ tipo.descripcion }}</li> 
-        {% endfor %}
-    </ul>
 
-    <p class="pequeno">Para ver las pizzas disponibles con cada pizza, seleccione la masa deseada</p>
-    <a href="{% url 'portada' %}">Volver al inicio</a> 
+    <div class="contenedor">
+        <div class="cont_tab">
+            
+            <p>En Mamma Mia, sabemos que una buena pizza comienza con la base perfecta. Por eso, 
+                ofrecemos una variedad de masas artesanales elaboradas con los mejores ingredientes 
+                y un toque de tradición. Descubre los diferentes tipos de masas que utilizamos para 
+                garantizar que cada bocado sea una experiencia inolvidable:
+            </p>
+
+            <table class="tabla-pizzas">
+                <thead>
+                    <tr>
+                        <th>MASA</th>
+                        <th>DESCRICIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tipo in tipos_masa %}
+                    <tr>
+                        <td><a href="{% url 'detalle_tipo_masa' tipo.id %}">{{ tipo.nombre }}</a></td>
+                        <td>{{ tipo.descripcion }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p class="pequeno">Para ver las pizzas disponibles con cada pizza, seleccione la masa deseada</p>
+            <a href="{% url 'portada' %}">Volver al inicio</a> 
+        </div>
+        
+        
+        <div class="imagen">
+            <img src="{% static 'imagenes/masa.webp' %}" alt="Imagen de masa" height="355">
+            <p class="pequeno">Una de nuestras deliciosas masas frescas.</p>    
+        </div>
+    </div>
+    
 </main>
+<br>
+<br>
+<br>
+<br>
 {%endblock%}

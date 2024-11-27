@@ -118,7 +118,7 @@ table td.precio{
     text-align: center;
 }
 
-/*Contenedores lista pizzas*/
+/*Contenedores listas*/
 .contenedor {
     display: flex;
     justify-content: space-between;
@@ -189,6 +189,8 @@ a {
     transition: color 0.3s ease;
 }
 
+
+/*LETRA PEQUEÑA*/
 .pequeno{
     font-size: 12px;
 }

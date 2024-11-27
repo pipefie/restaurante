@@ -4,11 +4,42 @@
 {%block content%}
 <main>
     <h1>Lista de Ingredientes</h1>
-    <ul>
-        {% for ingrediente in ingredientes %}
-            <li>{{ ingrediente.nombre }}</a> - {{ ingrediente.descripcion }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'portada' %}">Volver al inicio</a> 
+
+    <div class="contenedor">
+        <div class="cont_tab">
+
+            <p>En Mamma Mia, nos enorgullece utilizar ingredientes frescos y de la mejor 
+                calidad. Aquí tienes una lista de todos los ingredientes que empleamos 
+                para nuestras deliciosas pizzas:
+            </p>
+
+            <table class="tabla-pizzas">
+                <thead>
+                    <tr>
+                        <th>INGREDIENTES</th>
+                        <th>DESCRICIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ingrediente in ingredientes %}
+                    <tr>
+                        <td>{{ ingrediente.nombre }}</td>
+                        <td>{{ ingrediente.descripcion }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'portada' %}">Volver al inicio</a> 
+        </div>
+        
+        
+        <div class="imagen">
+            <img src="{% static 'imagenes/ingredientes.jpg' %}" alt="Imagen de ingredientes" height="325">    
+        </div>
+    </div>
 </main>
+<br>
+<br>
+<br>
+<br>
 {%endblock%}
