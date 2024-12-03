@@ -5,8 +5,70 @@
 {%block content%}
 <main>
     <h1>Detalle de la Pizza: {{ pizza.nombre }}</h1>
+
     <div class="det_pizza">
+        
         <div class="texto_pizza">
+            {% if pizza.nombre == "Margarita" %}
+                <p>
+                    La pizza Margarita nació en 1889 en Nápoles, creada por el pizzero Raffaele Esposito 
+                    para honrar a la reina Margarita de Saboya. Usó ingredientes que representaban los 
+                    colores de la bandera italiana: rojo (tomate), blanco (mozzarella) y verde (albahaca). 
+                    Aunque esta combinación ya existía, la dedicación a la reina popularizó su nombre.
+                </p>
+
+                <p>
+                    Hoy es un símbolo de la cocina italiana y la base de la pizza moderna, reconocida como 
+                    Patrimonio Cultural Inmaterial por la UNESCO en 2017.
+                </p>
+            {% elif pizza.nombre == "Pepperoni" %}
+                <p>
+                    La pizza Pepperoni nació en Estados Unidos en el siglo XX, creada por inmigrantes 
+                    italianos. Su nombre proviene del italiano peperoni (pimientos), pero en EE. UU. 
+                    se refiere a un embutido picante de cerdo y res. Con salsa de tomate, mozzarella y 
+                    pepperoni, es hoy una de las pizzas más populares del mundo.
+                </p>
+            
+            {% elif pizza.nombre == "Pizza Saludable" %}
+                <p>
+                    La pizza saludable es una adaptación moderna que busca opciones más nutritivas y 
+                    ligeras. Suele utilizar masas integrales o sin gluten, ingredientes frescos como 
+                    vegetales, proteínas magras (pollo, tofu) y alternativas al queso tradicional, 
+                    como queso bajo en grasa o vegano. Ideal para quienes cuidan su alimentación sin 
+                    renunciar al sabor.
+                </p>
+            {% elif pizza.nombre == "Pizza Rústica" %}
+                <p>
+                    La pizza rústica destaca por su estilo artesanal, con una masa gruesa y crujiente 
+                    hecha a mano. Sus ingredientes suelen ser frescos y de origen natural, como vegetales, 
+                    embutidos caseros y quesos auténticos, evocando los sabores tradicionales de la cocina 
+                    campesina italiana. Es una opción llena de carácter y sabor.
+                </p>
+            {% elif pizza.nombre == "Pizza Pollo Crujiente" %}
+                <p>
+                    La pizza de pollo crujiente es una variante popular que combina trozos de pollo 
+                    empanizado y frito con una base clásica de pizza. El pollo crujiente aporta una 
+                    textura contrastante con la suavidad de la masa, mientras que se complementa con 
+                    salsa de tomate, queso mozzarella y, en ocasiones, ingredientes adicionales como 
+                    salsa barbacoa o especias para intensificar su sabor.
+                </p>
+            {% elif pizza.nombre == "Pizza Vegetal Crujiente" %}
+                <p>
+                    La pizza vegetal crujiente se caracteriza por su base cargada de vegetales 
+                    frescos y crujientes, como pimientos, cebolla, champiñones, espinacas o tomates. 
+                    La masa suele ser delgada y crujiente, lo que realza la textura de los ingredientes. 
+                    Es una opción deliciosa y saludable, perfecta para quienes buscan una pizza ligera 
+                    pero llena de sabor.
+                </p>
+            {% else %}
+                <p>
+                    La pizza tocino picante combina la sabrosa textura crujiente del tocino con un 
+                    toque de picante, generalmente a través de salsa picante o ingredientes como jalapeños. 
+                    La mezcla de la grasa del tocino y el toque ardiente de las especias crea un contraste 
+                    de sabores intensos, haciendo de esta pizza una opción deliciosa para los amantes de 
+                    los sabores audaces.
+                </p>
+            {% endif %}
             <p><strong>Descripción:</strong> {{ pizza.descripcion }}</p>
             <p><strong>Precio:</strong> ${{ pizza.precio }}</p>
             <p><strong>Tipo de Masa:</strong> {{ pizza.tipo_masa.nombre }}</p>
