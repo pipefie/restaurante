@@ -1,0 +1,9 @@
+Con respecto a la entrega anterior los cambios mayoritariamente han sido en el estilo de la página, tablas y demás, también añadiendo más datos a la base de datos
+y la implementación de dos funcionalidades CRUD:
+
+1. Create: página del formulario que tras llenar los datos correspondientes y verificarlos guarda una reserva con todos estos datos en la base de datos y además haciendo
+uso de AJAX con los datos recogidos mostramos un aviso tras el evento de submit que muestre los datos de la reserva confirmando los mismos 
+
+2. Delete: borrar una reserva realizada anteriormente de la base de datos accediendo con el email del que realizó la reserva y mostrando una página con las reservas realizadas 
+por la person para posteriormente permitir el borrado y borrarla de la base de datos 
+
